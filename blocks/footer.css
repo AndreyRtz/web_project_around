@@ -6,7 +6,7 @@ margin: 60px auto;
 
 @media screen and (min-width: 320px) and (max-width: 584px) {
     .footer {
-    margin: 50px auto;
+    margin: 50px 19px;
 }
 }
 

@@ -15,9 +15,10 @@
   <body>
   <div class="page">
 
-    <div class="popup">
+<!-- Popup Botón Editar Perfil -->
+    <div class="popup" id="editProfile">
      <div class="popup__conteiner">
-      <button class="popup__button popup__button_close">🞩</button>
+      <button class="popup__button popup__button_close" id="buttonEdit">🞩</button>
 
       <form class="popup__content">
             <h2 class="popup__title">Editar perfil</h2>
@@ -31,6 +32,33 @@
           </form>
      </div>
     </div>
+
+<!-- Popup + Botón Agregar Imagen -->
+    <div class="popup" id="addImage">
+     <div class="popup__conteiner">
+      <button class="popup__button popup__button_close" id="buttoneditImage">🞩</button>
+
+      <form class="popup__content" id= "submit_card">
+            <h2 class="popup__title">Nuevo Lugar</h2>
+            <fieldset class="popup__form">
+              <input type="text" class="popup__input popup__input_name" id="inputNamePlace" placeholder="Título">
+              <input type="text" class="popup__input popup__input_hobbie" id="inputImagePlace" placeholder="Enlace a la imagen">
+            </fieldset>
+            <fieldset class="popup__form">
+              <button class="popup__button popup__button_save">Crear</button>
+            </fieldset>
+          </form>
+     </div>
+    </div>
+    
+<!-- Popup Abrir Imagen -->
+      <div class="popup" id="openImage">
+        <div class="popup__conteiner popup__conteiner_image">
+          <button class="popup__button popup__button_close" id="closeImage">🞩</button>
+          <img class="popup__image" src="https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/lake-louise.jpg" alt="">
+          <h3 class="popup__image-title">Lago Louise</h3>
+        </div>
+      </div>
 
     <header class="header">
      
@@ -66,66 +94,6 @@
 
       <section class="card">
 
-        <div class="card__content"> 
-          <img class="card__photo" src="./images/valle-de-yosemite.png" alt="valle de yosemite">
-
-          <div class="card__info">
-          <p class="card__photo-name">Valle de Yosemite</p>
-          <button class="card__button-like"> <img class="card__button-like-image" src="./images/Vector corazón.png" alt="botón Corazón like">
-          </button>
-          </div>
-        </div>
-
-        <div class="card__content"> 
-          <img class="card__photo" src="./images/lago-louise.png" alt="lago louise">
-
-          <div class="card__info">
-          <p class="card__photo-name">Lago Louise</p>
-          <button class="card__button-like"> <img class="card__button-like-image" src="./images/Vector corazón.png" alt="botón Corazón like">
-          </button>
-          </div>
-        </div>
-
-        <div class="card__content"> 
-          <img class="card__photo" src="./images/montañas-calvas.png" alt="montañas calvas">
-
-          <div class="card__info">
-          <p class="card__photo-name">Montañas Calvas</p>
-          <button class="card__button-like"> <img class="card__button-like-image" src="./images/Vector corazón.png" alt="botón Corazón like">
-          </button>
-          </div>
-        </div>
-
-        <div class="card__content"> 
-          <img class="card__photo" src="./images/latemar.png" alt="Montañas Latemar">
-
-          <div class="card__info">
-          <p class="card__photo-name">Latemar</p>
-          <button class="card__button-like"> <img class="card__button-like-image" src="./images/Vector corazón.png" alt="botón Corazón like">
-          </button>
-          </div>
-        </div>
-
-        <div class="card__content"> 
-          <img class="card__photo" src="./images/vanoise-national.png" alt="Parque Nacional de la Vanoise">
-
-          <div class="card__info">
-          <p class="card__photo-name card__photo-name-overflow "> Parque Nacional de la Vanoise</p>
-          <button class="card__button-like"> <img class="card__button-like-image" src="./images/Vector corazón.png" alt="botón Corazón like">
-          </button>
-          </div>
-        </div>
-
-        <div class="card__content"> 
-          <img class="card__photo" src="./images/lago-di-braies.png" alt="Lago di Braies">
-
-          <div class="card__info">
-          <p class="card__photo-name card__photo-name-overflow "> Lago di Braies</p>
-          <button class="card__button-like"> <img class="card__button-like-image" src="./images/Vector corazón.png" alt="botón Corazón like">
-          </button>
-          </div>
-        </div>
-
       </section>
 
     </main>
@@ -134,5 +102,19 @@
    <p class="footer__copyright">2025 Around the U.S.</p>
    </footer>
    </div>
+
+   <template class="template-card">
+
+    <div class="card__content"> 
+          <img class="card__photo" src="./images/valle-de-yosemite.png" alt="valle de yosemite">
+          <button class="card__button-delete" id="deleteCard"></button>
+          <div class="card__info">
+          <p class="card__photo-name">Valle de Yosemite</p>
+          <button class="card__button-like"> <img class="card__button-like-image" src="./images/button_like.png" alt="botón Corazón like">
+          </button>
+          </div>
+        </div>
+
+   </template>
 <script src="./scripts/index.js"></script>
 </body>

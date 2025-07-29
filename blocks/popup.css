@@ -34,6 +34,17 @@ transform: translate(-50%, -50%);
 .popup__button {
   font-size: 18px;
   color: #ffffff;
+  cursor: pointer;
+}
+
+.popup__button:hover{
+   opacity: 0.8;
+}
+
+.popup__button:disabled {
+  background-color: #fffefe;
+  cursor: default;
+  color: #999999;
 }
 
 .popup__button_close {
@@ -63,14 +74,27 @@ transform: translate(-50%, -50%);
 .popup__input_name {
   width: 360px;
   border: 0;
-  margin-bottom: 30px;
+ 
   border-bottom: 1px solid #000;
+}
+
+
+.popup__input_type_error:invalid {
+  border-bottom: 1px solid #ff0000;
+}
+
+.popup__error_visible {
+  color: #ff0000;
+}
+
+.popup__input-error {
+  display: block;
 }
 
 .popup__input_hobbie {
   width: 360px;
   border: 0;
-  margin-bottom: 30px;
+  margin-top: 30px;
   border-bottom: 1px solid #000;
 }
 
@@ -79,7 +103,13 @@ transform: translate(-50%, -50%);
   background-color: #000;
   padding: 10px;
   margin-bottom: 40px;
+  margin-top: 30px;
 }
+
+.popup__image-title {
+  color: #fff;
+}
+
 
 @media screen and (min-width: 320px) and (max-width: 584px) {
   .popup {

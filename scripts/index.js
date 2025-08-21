@@ -1,6 +1,25 @@
-
+import FormValidator from "./FormValidator.js";
+import {
+  settings,
+  openEdit,
+  openAddImage,
+  closePopup,
+  closeOutside,
+  closeEsc,
+}
+from "./utils.js";
+import Card from "./Card.js";
 
 const popupProfile = document.querySelector("#editProfile");
+const Profileform = popupProfile.querySelector("#formEdit");
+
+const  SaveEditImg = document.querySelector("#submit_card");
+const editImageFormValidation = new FormValidator (SaveEditImg,settings);
+const editProfileFormValidation = new FormValidator(Profileform, settings);
+
+editProfileFormValidation.enableValidation();
+editImageFormValidation.enableValidation();
+
 
 // Variables popup editProfile
 const butEdit = document.querySelector(".profile__edit-button");
@@ -16,13 +35,16 @@ const popupImage = document.querySelector("#addImage");
 const  butaddImage = document.querySelector(".profile__add-button");
 const  imgeTitle = document.querySelector("#inputNamePlace");
 const  imgeLink = document.querySelector("#inputImagePlace");
-const  SaveEditImg = document.querySelector("#submit_card");
+
 const  butCloseEditImg = document.querySelector("#buttoneditImage");
 
 const  butCloseImg = document.querySelector("#closeImage");
-// Variables Tarjetas Iniciales
-const templateCard = document.querySelector(".template-card")
+
 const cardList = document.querySelector(".card")
+
+//Tarjetas Iniciales
+
+
 
 const initialCards = [
   {
@@ -51,155 +73,100 @@ const initialCards = [
   }
 ];
 
-// Bucle 
-initialCards.forEach (function (item){
-  createCard (item.name, item.link );
-})
+// Bucle: Recorre initialCards y por cada elemento llama 
+// a cloneCard para generar una tarjeta en pantalla. 
 
+initialCards.forEach(function (item) {
+  const cloneCard = createCard(item.name, item.link);
+  cardList.append(cloneCard);
+});
 
-
-// Funcion crear tarjetas
-function createCard (name,link) {
-const clonedCard = templateCard.content.querySelector(".card__content") 
-.cloneNode(true);
-
-const cardTitle = clonedCard.querySelector(".card__photo-name")
-const cardImage = clonedCard.querySelector(".card__photo")
-
-cardTitle.textContent = name;
-cardList.append(clonedCard)
-cardImage.src = link;
-
-// Evento Click Boton deleteCard
-const deleteCard = clonedCard.querySelector("#deleteCard");
-deleteCard.addEventListener("click", function () {
-    clonedCard.remove();
-  }); 
-  
-  cardImage.addEventListener("click", function () {
-    openImage(name, link);
-  });
-
-  // Función Botón Corazón Like 
-  
-const likeCard = clonedCard.querySelector(".card__button-like-image");
-  likeCard.addEventListener("click", function () {
-    if (likeCard.src == "http://127.0.0.1:5500/images/Union.png") {
-      likeCard.src = "./images/button_like.png";
-    } else {
-      likeCard.src = "./images/Union.png";
-    }
-  });
+//funcion para agregar tarjetas
+function createCard(name, link) {
+return new Card(name, link).generateElement();
 }
 
 
-
-// función popup formulario editar perfil: nombre y hobbie
-
-function openedit(evt) {
- 
-  inputName.value = infName.textContent;
-  inputHobbie.value = infHobbie.textContent;
-  popupProfile.classList.add("popup_opened");
-}
- 
-// Función para guardar cambios Botón edit perfil
-
+//Funcion Boton de guardar edit perfil
 function savEdit(evt) {
   evt.preventDefault();
   infName.textContent = inputName.value;
   infHobbie.textContent = inputHobbie.value;
-  closedit();
+    closePopup(popupProfile);
 }
 
-// Función para cerrar X editar perfil
+//Funcion para cerrar formulario de editar perfil
 function closedit(evt) {
-   popupProfile.classList.remove("popup_opened");
+  popupProfile.classList.remove("popup_opened");
 }
 
-// función popup formulario AddImage
 
-function openaddImage(evt) {
-
-  inputName.value = infName.textContent;
-  inputHobbie.value = infHobbie.textContent;
-  popupImage.classList.add("popup_opened");
-}
-
-// Función para cerrar X AddImage
+//Funcion para cerrar formulario de editar imagen
 function closeditImage(evt) {
- popupImage.classList.remove("popup_opened");
+  popupImage.classList.remove("popup_opened");
 }
 
-// Función para guardar cambios Botón addImage
-
-function submitCart(event) {
+//Funcion para enviar formulario de editar imagen
+function submitCard(event) {
   event.preventDefault();
-  console.log("click");
   const Title = imgeTitle.value;
   const Link = imgeLink.value;
-  createCard(Title, Link);
+  const newCard =  createCard(Title, Link);
+  cardList.append(newCard);
   closeditImage();
+  console.log(submitCard);
 }
+SaveEditImg.addEventListener("submit", submitCard);
 
-//funcion para abrir imagen *************************
-function openImage(name, link) {
-  
-  popupOpenImage.classList.add("popup_opened");
-  let imagePopup = popupOpenImage.querySelector(".popup__image");
-  let titlePopup = popupOpenImage.querySelector(".popup__image-title");
-  imagePopup.src = link;
-  titlePopup.textContent = name;
-}
 
-//Funcion para cerrar Imagen
-function closeImage(evt) {
-  popupOpenImage.classList.remove("popup_opened");
-}
+// EVENTOS DE CLICK
 
-function closeOutsideEdditProfile(evt){
-  if(evt.target == popupProfile){
-    closedit();
-  }
-}
 
-function closeOutsideAddImage(evt){
-  if(evt.target == popupImage){
-    closeditImage();
-  }
-}
+document.addEventListener("keydown", (evt) => {
+  closeEsc(evt, [popupProfile, popupImage, popupOpenImage]);
+});
 
-function closeOutsideImage(evt){
-  if(evt.target == popupOpenImage){
-    closeImage();
-  }
-}
+popupProfile.addEventListener("click", function (evt) {
+  closeOutside(popupProfile, evt);
+});
 
-function closeEsc(evt){
-  if(evt.key == "Escape"){
-    closedit();
-    closeImage();
-    closeditImage();
-  };
-}
 
-// Evento CLICK Abrir, cerrar y guardar boton editProfile
+popupImage.addEventListener("click", function (evt) {
+  closeOutside(popupImage, evt);
+});
+
+popupOpenImage.addEventListener("click", function (evt) {
+  closeOutside(popupOpenImage, evt);
+});
 
 popupProfile.addEventListener("submit", savEdit);
-butCloseEdit.addEventListener("click", closedit);
-butEdit.addEventListener("click", openedit);
-
-// Evento Click Abrir cerrar y guardar Boton AddImage
-butaddImage.addEventListener("click", openaddImage);
-butCloseEditImg.addEventListener("click", closeditImage);
-SaveEditImg.addEventListener("submit", submitCart);
-butCloseImg.addEventListener("click", closeImage);
 
 
-document.addEventListener("keydown", closeEsc);
-popupProfile.addEventListener("click", closeOutsideEdditProfile);
-popupImage.addEventListener("click", closeOutsideAddImage);
-popupOpenImage.addEventListener("click", closeOutsideImage);
+butCloseEdit.addEventListener("click", function () {
+  closePopup(popupProfile);
+});
+
+butCloseEditImg.addEventListener("click", function () {
+  closePopup(popupImage);
+});
+
+butCloseImg.addEventListener("click", function () {
+  closePopup(popupOpenImage);
+});
+
+butEdit.addEventListener("click", function () {
+  openEdit(popupProfile, infName, infHobbie);
+});
+
+butaddImage.addEventListener("click", function () {
+  openAddImage(popupImage, infName, infHobbie);
+});
+
+
+
+
+
+
 
 
 

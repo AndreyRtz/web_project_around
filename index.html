@@ -15,11 +15,12 @@
   <body>
   <div class="page">
 
-<!-- Popup Botón Editar Perfil -->
+ <!-- Popup Botón Editar Perfil -->
     <div class="popup" id="editProfile">
      <div class="popup__conteiner">
       <button class="popup__button popup__button_close" id="buttonEdit">🞩</button>
 
+       <!-- Formulario: Editar Perfil-->
       <form class="popup__content" id="formEdit" novalidate>
             <h2 class="popup__title">Editar perfil</h2>
             <fieldset class="popup__form">
@@ -36,11 +37,12 @@
      </div>
     </div>
 
-<!-- Popup + Botón Agregar Imagen -->
+ <!-- Popup + Botón Agregar Imagen -->
     <div class="popup popu__add-image " id="addImage">
      <div class="popup__conteiner">
       <button class="popup__button popup__button_close" id="buttoneditImage">🞩</button>
 
+      <!-- Formulario: Agregar Tarjeta -->
       <form class="popup__content" id= "submit_card">
             <h2 class="popup__title">Nuevo Lugar</h2>
             <fieldset class="popup__form">
@@ -57,7 +59,7 @@
      </div>
     </div>
     
-<!-- Popup Abrir Imagen -->
+ <!-- Popup Abrir Imagen -->
       <div class="popup" id="openImage">
         <div class="popup__conteiner popup__conteiner_image">
           <button class="popup__button popup__button_close" id="closeImage">🞩</button>
@@ -99,9 +101,9 @@
       </section>
 
       <section class="card">
-
+     <!-- Agregar las Tarjeta Nuevas -->
       </section>
-
+     
     </main>
     
    <footer class="footer">
@@ -109,6 +111,7 @@
    </footer>
    </div>
 
+    <!-- Template Tarjetas-->
    <template class="template-card">
 
     <div class="card__content"> 
@@ -122,5 +125,6 @@
         </div>
 
    </template>
-<script src="./scripts/index.js" type="module" defer></script>
-</body>
+ <script type="module" src="./components/index.js"></script>
+ </body>
+</html>

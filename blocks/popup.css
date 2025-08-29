@@ -78,6 +78,21 @@ transform: translate(-50%, -50%);
   border-bottom: 1px solid #000;
 }
 
+.popup__input_title {
+  width: 360px;
+  border: 0;
+ 
+  border-bottom: 1px solid #000;
+}
+
+.popup__input_url {
+  width: 360px;
+  border: 0;
+  margin-top: 30px;
+  border-bottom: 1px solid #000;
+}
+
+
 
 .popup__input_type_error:invalid {
   border-bottom: 1px solid #ff0000;

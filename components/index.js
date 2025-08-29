@@ -8,7 +8,7 @@ import PopupWithImage from "./PopupWithImage.js";
 import UserInfo from "./UserInfo.js";
 
 const popupProfile = new PopupWithForm(
-  "#editProfile","#formEdit",
+  "#editProfile",".popup__form-add",
   (data) => {
     console.log(data);
     userProfile.setUserInfo(data.name, data.occupation);
@@ -17,12 +17,12 @@ const popupProfile = new PopupWithForm(
 popupProfile.setEventListeners();
 
 const popupAddCard = new PopupWithForm(
-  "#addImage","#submit_card",
+  "#addImage",".popup__form-add",
   (data) => {
     console.log(data);
     const newCard = new Card(
-      data.name,
-      data.link,
+      data.title,
+      data.url,
       ".card__content",
       (title, link) => {
         // Abrimos la carta

@@ -54,7 +54,7 @@ const userProfile = new UserInfo({
 const initialCards = [
   {
     name: "Palomino-Guajira",
-    link: "https://scontent.fbaq9-1.fna.fbcdn.net/v/t39.30808-6/503755310_10095868627176274_4864148887074219462_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=106&ccb=1-7&_nc_sid=cc71e4&_nc_ohc=P7Yp8RNXpzoQ7kNvwFU8lKe&_nc_oc=AdkSFXGSk02W_kffLPCgmHmf2r4KjznWbiiEnoRCRmiroOeKaGyZZ7QZk5ol-rPjezk&_nc_zt=23&_nc_ht=scontent.fbaq9-1.fna&_nc_gid=h9kLc2lgqZPUVuokQGlPFQ&oh=00_AfWSIxVi4WdxF_jk4sic6_ZIp4P6L4hsO4UJNf2W20FOXw&oe=68B45397"
+    link: "https://scontent.fbaq9-1.fna.fbcdn.net/v/t39.30808-6/503755310_10095868627176274_4864148887074219462_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=106&ccb=1-7&_nc_sid=cc71e4&_nc_eui2=AeHIQfaVoybs8vhl3WLDwHbebnBfBFtA2hhucF8EW0DaGKLFY6JcTHGbW2r6-1_dT5YtW5Z6dHtP6cqbPXWp5YGF&_nc_ohc=bEOlznl5jhAQ7kNvwHcpTpW&_nc_oc=AdlXtJIr0MRrGLj7Q8cGzlvD6tJW8tL8Y-c_x03EEZNqBOIMrSfQv6jwP6c47WS36Gc&_nc_zt=23&_nc_ht=scontent.fbaq9-1.fna&_nc_gid=UxO6nr3Cu1ZrS9m2X6XUyg&oh=00_AfVGSEy2mUWwZJuThJTAe0sGQD-28Q0sKRcZlCfectjHOQ&oe=68BBCC17"
   },
   {
     name: "Dunas de Taroa",
@@ -62,7 +62,7 @@ const initialCards = [
   },
   {
     name: "Bahía Solano-Chocó",
-    link: "https://scontent.fbaq9-1.fna.fbcdn.net/v/t39.30808-6/512704813_24040857525584149_2819985266632623317_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=86c6b0&_nc_ohc=A7bZdDAZhJoQ7kNvwHnXOkF&_nc_oc=Adly2A37iVmTt_IY2mbWJ2--UAJSgQIHBfW5mZXaJRjFyT2V-8NYFKMwF7zSWtFGGaU&_nc_zt=23&_nc_ht=scontent.fbaq9-1.fna&_nc_gid=g9EQDqvv6hyRvDYleq23zg&oh=00_AfUS1S9ehYoRPV8ip7AgFm0oAAM37jpv92HjaWy35Lcd1A&oe=68B46BCC"
+    link: "https://scontent.fbaq9-1.fna.fbcdn.net/v/t39.30808-6/513911038_24040388158964419_7467912390907429778_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=cf85f3&_nc_eui2=AeH8FLFTnx90h_5YW06GI4j0bUBi5ddzlQptQGLl13OVCipZLrK1cbb0Bwfpgz-t7xLb8XpzO1NU6vG_OxXryHUC&_nc_ohc=7tUbbg1EVoYQ7kNvwG8Kbb0&_nc_oc=Adkg9DAxq71xBqqjhq9fnL0CJyD5fiEYZeByK1X1pBSk4TxWvOmSYyHIF3pTjoIavoQ&_nc_zt=23&_nc_ht=scontent.fbaq9-1.fna&_nc_gid=GdE9di_T6TwWB5v-Xp-MZA&oh=00_AfV-3ZaY5M3Lf40CAuDFCS22HfZaPw2oBAhW9UyxyrApqQ&oe=68BBC466"
   },
   {
     name: "Ciudad Perdida-S.Marta",
@@ -70,11 +70,11 @@ const initialCards = [
   },
   {
     name: "El Valle - Chocó",
-    link: "https://scontent.fbaq9-1.fna.fbcdn.net/v/t39.30808-6/513911038_24040388158964419_7467912390907429778_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=cf85f3&_nc_ohc=u0Anhe9KpKwQ7kNvwHH8uoW&_nc_oc=AdlssejNYfOb-aqZ3meWtgJ1QK8PAd0Dm6RoXwyLZJli9iml-n9DPVGqScpJGXM--6Q&_nc_zt=23&_nc_ht=scontent.fbaq9-1.fna&_nc_gid=IbuIyUVk_37vC4hRnybJog&oh=00_AfWfYQ55glNzMSZvSTuMI-EBDkNbxMg_SmqmBM0wkDu_3w&oe=68B44BE6"
+    link: "https://scontent.fbaq9-1.fna.fbcdn.net/v/t39.30808-6/512704813_24040857525584149_2819985266632623317_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=86c6b0&_nc_eui2=AeH7op0y2bKpXO715Zy8A_vxXcI7z0aDCmldwjvPRoMKad7_cc3li7YLjGlgebJMknAlnrLF0KiRSpXqLZ5y-kRO&_nc_ohc=GGVjUBn6wYYQ7kNvwHoWpHU&_nc_oc=AdkuudV_StLz1jqsgbpRXx7xHlNmNY3_poFlDRapSuUzLvtd17ipzuRyGB00NlHts9M&_nc_zt=23&_nc_ht=scontent.fbaq9-1.fna&_nc_gid=aW2onLiXf6bfcFiA8VAH4A&oh=00_AfXnXKTpm1Cgn0n2Sho9DdiTUgJtuvahuT6xPZtj_PgJQw&oe=68BBE44C"
   },
   {
     name: "Uyuni",
-    link: "https://scontent.fbaq9-1.fna.fbcdn.net/v/t39.30808-6/514029318_24041928405477061_8022923849485016424_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=a5f93a&_nc_ohc=SHXZsa78UQoQ7kNvwG8srCh&_nc_oc=AdkriMAC58LetV0uOJh04NvNdbXlBEC_KMzfPFqNOug_AY1T5iF_J1tZQyZpirPkX40&_nc_zt=23&_nc_ht=scontent.fbaq9-1.fna&_nc_gid=jr44CydPmVgMfcK-Wzo8ig&oh=00_AfW4jCzrdf99dE2xr4HMdsje3UcLvbUYtNb6zdo_f5brXA&oe=68B44D05"
+    link: "https://scontent.fbaq9-1.fna.fbcdn.net/v/t39.30808-6/509438693_23979414025061833_3988416596507235475_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=cf85f3&_nc_eui2=AeGn9z8utc6S2VK6jsOxuLa_qBs9a9LIhRyoGz1r0siFHK0ceEVWo0pnGRaWHuCm1MsBev_IZRdMzZYQUiwvc5iE&_nc_ohc=_Krsgukg8GkQ7kNvwHFA2ms&_nc_oc=AdkSbvuJy6hXNlQwXBVbc1dgQhYr8W-5ThhW1sUPj82BQMqmzLowRqkifuDrIUXQXk8&_nc_zt=23&_nc_ht=scontent.fbaq9-1.fna&_nc_gid=zxcK7yltwBTTUphFirJmjg&oh=00_AfWriJYiMmtCYojJOYD2cDO7awdsr5svDj7fEb0Lb5uzYg&oe=68BBCBA0"
      
   }
 ];

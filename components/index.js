@@ -1,3 +1,4 @@
+// Trae clases y utilidades desde otros módulos
 import { Card } from "./Card.js";
 import { FormValidator } from "./FormValidator.js";
 import { galleryContainer, btnEdit, btnAdd } from "./utils.js";
@@ -7,50 +8,9 @@ import PopupWithForm from "./PopupWithForm.js";
 import PopupWithImage from "./PopupWithImage.js";
 import UserInfo from "./UserInfo.js";
 
-const popupProfile = new PopupWithForm(
-  "#editProfile",".popup__form-add",
-  (data) => {
-    console.log(data);
-    userProfile.setUserInfo(data.name, data.occupation);
-  });
 
-popupProfile.setEventListeners();
-
-const popupAddCard = new PopupWithForm(
-  "#addImage",".popup__form-add",
-  (data) => {
-    console.log(data);
-    const newCard = new Card(
-      data.title,
-      data.url,
-      ".card__content",
-      (title, link) => {
-        // Abrimos la carta
-        popupOpenCard.open(title, link);
-      }
-    );
-
-    const cardElement = newCard.createCard();
-    galleryContainer.prepend(cardElement);
-  }
-);
-
-popupAddCard.setEventListeners();
-
-const popupOpenCard = new PopupWithImage("#openImage");
-popupOpenCard.setEventListeners();
-
-const userProfileConfig = {
-  name: ".profile__name",
-  occupation: ".profile__hobbie",
-};
-
-const userProfile = new UserInfo({
-  name: userProfileConfig.name,
-  occupation: userProfileConfig.occupation,
-});
-
-//Las 6 Tarjetas Iniciales
+// ---------- Datos iniciales ----------
+// Tarjetas que se muestran al cargar la página
 const initialCards = [
   {
     name: "Palomino-Guajira",
@@ -79,30 +39,75 @@ const initialCards = [
   }
 ];
 
-// Uso del FormValidator
+// Configuración del validador de formularios
+// FormValidator.js
 const settings = {
   formSelector: ".popup__content",
   inputSelector: ".popup__input",
   submitButtonSelector: ".popup__button",
 };
 
-// enableValidation(settings);
+// Selectores del perfil en el DOM
+// Configuración de perfil
+const userProfileConfig = {
+  name: ".profile__name",
+  occupation: ".profile__hobbie",
+};
+
+// ---------- Instancias principales ----------
+
+// Manejo de información del perfil
+const userProfile = new UserInfo(userProfileConfig);
+
+// Popup para editar perfil (actualiza userProfile)
+const popupProfile = new PopupWithForm(
+  "#editProfile",
+  ".popup__form-add",
+  (data) => {userProfile.setUserInfo(data.name, data.occupation);
+  });
+
+// Popup para abrir imágenes grandes
+const popupOpenCard = new PopupWithImage("#openImage");
+
+// Popup para añadir nuevas tarjetas
+const popupAddCard = new PopupWithForm(
+  "#addImage",
+  ".popup__form-add",
+  (data) => {
+    const newCard = new Card(
+      data.title,
+      data.url,
+      ".card__content",
+      (title, link) => {
+        // Abrimos la carta
+        popupOpenCard.open(title, link);
+      }
+    );
+    const cardElement = newCard.createCard();
+    galleryContainer.prepend(cardElement); 
+  }
+);
+
+// Validador de formularios
 const formValidate = new FormValidator(settings);
-formValidate.enableValidation();
 
-// Eventos Listener para botones
-btnEdit.addEventListener("click", () => popupProfile.open());
-btnAdd.addEventListener("click", () => popupAddCard.open());
-
+// ---------- Funciones auxiliares ----------
+// Crea una tarjeta a partir de datos y la devuelve lista para insertar.
 // Agregar Tarjeta
 function addCard(data) {
-  const newCard = new Card(data.name, data.link, ".card__content", () => {
-    popupOpenCard.open(data.name, data.link);
+  const newCard = new Card(
+    data.name, 
+    data.link, 
+    ".card__content", 
+    () => {popupOpenCard.open(data.name, data.link);
   });
+
   return newCard.createCard();
 }
 
-// Agregando la seccion
+// ---------- Secciones ----------
+// Maneja la galería de tarjetas iniciales
+// Agrega la seccion
 const cardSection = new Section(
   {
     item: initialCards,
@@ -113,9 +118,44 @@ const cardSection = new Section(
   ".card"
 );
 
+// ---------- Listeners ----------
+// Activa comportamiento interno de los popups
+popupProfile.setEventListeners();
+popupAddCard.setEventListeners();
+popupOpenCard.setEventListeners();
+
+// Botones que abren popups desde el DOM
+btnEdit.addEventListener("click", () => popupProfile.open());
+btnAdd.addEventListener("click", () => popupAddCard.open());
+
+// ---------- Inicializaciones ----------
+// Inicia la validación y renderiza las tarjetas iniciales
+formValidate.enableValidation();
 cardSection.renderer();
 
 export { settings };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

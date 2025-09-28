@@ -14,6 +14,12 @@ position: relative;
   border-radius: 50%;
   max-width: 120px;
   height: 120px;
+  object-fit: cover;
+}
+
+.profile__person:hover {
+  opacity: 0.4;
+  cursor: url("../images/edit-profile.png") 1 1, auto;
 }
 
 .profile__content {

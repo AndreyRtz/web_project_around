@@ -1,6 +1,6 @@
 // ---------- Clase para validar formularios ----------
 
-class FormValidator {
+export default class FormValidator {
   constructor(settings) {
     // Configuración recibida desde index.js u otro módulo
     this.formSelector = settings.formSelector;   // Selector para los formularios
@@ -50,7 +50,7 @@ class FormValidator {
 
       // Si todos son válidos → habilita el botón
     } else {
-      buttonElement.removeAttribute("disabled");
+     buttonElement.disabled = false;
     }
   }
 

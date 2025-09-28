@@ -13,7 +13,10 @@ export default class PopupWithForm extends PopUp {
     super(popupSelector);                               // Inicializa la clase padre PopUp
     this.formElement = this.popupElement.querySelector(formSelector); // Guarda el formulario dentro del popup
     this._handleFormSubmit = callback;                                // Callback para manejar el submit
+    this._submitButton = this.formElement.querySelector(".popup__button_save");
+    this._originalButtonText = this._submitButton.textContent; 
   }
+
 
   // ---------- Obtener valores de los inputs ----------
   // Recorre todos los inputs y devuelve un objeto con sus valores
@@ -47,5 +50,6 @@ export default class PopupWithForm extends PopUp {
   close() {
     super.close();
     this.formElement.reset();
+     this.setEventListeners(false);
   }
 }

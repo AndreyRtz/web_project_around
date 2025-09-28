@@ -3,9 +3,10 @@ export default class UserInfo {
   // ---------- Constructor ----------
   // Recibe un objeto con los selectores de nombre y ocupación.
   // Busca esos elementos en el DOM y los guarda como propiedades.
-  constructor({ name, occupation }) {
+  constructor({ name, about, avatar }) {
     this.nameElement = document.querySelector(name);
-    this.occupationElement = document.querySelector(occupation);
+    this.aboutElement = document.querySelector(about);
+    this.avatarElement = document.querySelector(avatar);
   }
 
   // ---------- Obtener información ----------
@@ -13,14 +14,19 @@ export default class UserInfo {
   getUserInfo() {
     return {
       name: this.nameElement.textContent,
-      occupation: this.occupationElement.textContent,
+      about: this.aboutElement.textContent,
+      avatar: this.avatarElement.src,
     };
   }
 
   // ---------- Actualizar información ----------
   // Recibe valores nuevos y los coloca en los elementos del DOM.
-  setUserInfo(name, occupation) {
+  setUserInfo(name, about) {
     this.nameElement.textContent = name;
-    this.occupationElement.textContent = occupation;
+    this.aboutElement.textContent = about;
+  }
+
+changeAvatar(avatarLink) {
+    this.avatarElement.src = avatarLink;
   }
 }

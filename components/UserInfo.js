@@ -26,7 +26,7 @@ export default class UserInfo {
     this.aboutElement.textContent = about;
   }
 
-changeAvatar(avatarLink) {
+setAvatar(avatarLink) {
     this.avatarElement.src = avatarLink;
   }
 }

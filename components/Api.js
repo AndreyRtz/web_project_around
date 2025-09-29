@@ -56,19 +56,18 @@ class Api {
     })
   }
   
-  // Metodo para obtener las tarjetas iniciales
+  // Método para obtener las tarjetas iniciales
   getInitialCards() {
-    return (
-    //Esta es la peticion
-    fetch (`${this.baseUrl}/cards`, {
-      headers:this.headers,
-    }).then ((res) => {
+    return fetch(`${this.baseUrl}/cards`, {
+      method: "GET",
+      headers: this.headers,
+    }).then((res) => {
       if (res.ok) {
-        return res.json ()
+        return res.json();
       }
-    })
-  );
-    }   
+    });
+  }
+
 
   // Método para agregar una nueva tarjeta
   createCard(name, link) {
@@ -89,21 +88,44 @@ class Api {
   );
  }
     
- deleteCard(cardId) {
-    return (
-      //Esta es la peticion
-      fetch(`${this.baseUrl}/cards/${cardId}`, {
-        method: "DELETE",
-        headers: this.headers,
-      }).then((result) => {
-        if (result.ok) {
-          return result.json();
-        }
-      })
-    );
-  }    
+
+// Método para eliminar una tarjeta (moved inside the class)
+  deleteCard(cardId) {
+    return fetch(`${this.baseUrl}/cards/${cardId}`, {
+      method: "DELETE",
+      headers: this.headers,
+    }).then((res) => {
+      if (res.ok) {
+        return res.json();
+      }
+    });
+  }  
+  //Metodo de me gusta
+  likeCard(cardId) {
+    return fetch(`${this.baseUrl}/cards/${cardId}/likes`, {
+      method: "PUT",
+      headers: this.headers,
+    }).then((result) => {
+      if (result.ok) {
+        return result.json();
+      }
+    });
+  }
+
+  //Metodo para elominar el me gusta
+  removeLikeCard(cardId) {
+    return fetch(`${this.baseUrl}/cards/${cardId}/likes`, {
+      method: "DELETE",
+      headers: this.headers,
+    }).then((result) => {
+      if (result.ok) {
+        return result.json();
+      }
+    });
+  }
 
 
+ 
 
 
 }

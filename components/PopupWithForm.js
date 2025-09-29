@@ -4,15 +4,11 @@ import PopUp from "./PopUp.js";
 // ---------- Clase PopupWithForm ----------
 // Extiende PopUp para manejar popups que contienen formularios
 export default class PopupWithForm extends PopUp {
-  // ---------- Constructor ----------
-  // Recibe:
-  // - popupSelector: selector CSS del popup
-  // - formSelector: selector del formulario dentro del popup
-  // - callback: función que se ejecuta al enviar el formulario
+
   constructor(popupSelector, formSelector, callback) {
     super(popupSelector);                               // Inicializa la clase padre PopUp
-    this.formElement = this.popupElement.querySelector(formSelector); // Guarda el formulario dentro del popup
     this._handleFormSubmit = callback;                                // Callback para manejar el submit
+    this.formElement = this.popupElement.querySelector(formSelector); // Guarda el formulario dentro del popup
     this._submitButton = this.formElement.querySelector(".popup__button_save");
     this._originalButtonText = this._submitButton.textContent; 
   }
@@ -25,12 +21,21 @@ export default class PopupWithForm extends PopUp {
     const inputList = this.formElement.querySelectorAll(".popup__input"); //Seleccionamos todos los input de los formularios
     inputList.forEach((input) => {
       
-      data[input.id] = input.value; // Guarda cada valor usando el id del input como clave
+      data[input.name] = input.value; // Guarda cada valor usando el id del input como clave
     });
 
     return data;
   }
 
+  setLoadingState(isLoading, loadingText = "Guardando...") {
+    if (isLoading) {
+      this._submitButton.textContent = loadingText;
+      this._submitButton.disabled = true;
+    } else {
+      this._submitButton.textContent = this._originalButtonText;
+      this._submitButton.disabled = false;
+    }
+  }
   // ---------- Listeners ----------
   // Configura los eventos del popup + submit del formulario
   setEventListeners() {
@@ -41,7 +46,7 @@ export default class PopupWithForm extends PopUp {
       // Ejecuta el callback pasando los valores del formulario
       this._handleFormSubmit(this._getInputValues()); //Estoy pasando a handleFormSubmit un objeto que obtengo de getInputValue
       
-      super.close(); // Cierra el popup después de enviar
+      // super.close(); // Cierra el popup después de enviar
     });
   }
 

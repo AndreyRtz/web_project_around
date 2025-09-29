@@ -26,9 +26,25 @@ left: 50%;
 transform: translate(-50%, -50%);
 }
 
+#deleteCard .popup__conteiner {
+  width: 430px;
+  height: 181px;
+  max-width: 430px;
+}
+
 .popup__content {
   background-color: #ffffff;
   border-radius: 10px;
+}
+
+#deleteCard .popup__content {
+  width: 430px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 .popup__button {
@@ -56,12 +72,27 @@ transform: translate(-50%, -50%);
   border: none;
 }
 
+#deleteCard .popup__button_close {
+  position: absolute;
+  top: 10px;
+  right: -30px;
+  top: -50px;
+  z-index: 1;
+  border: none;
+  cursor: pointer;
+}
+
 .popup__title {
   width: 330px;
   font-family: "Inter-Black", sans-serif;
   font-size: 24px;
   margin: 0 36px;
   padding: 34px 0 54px;
+}
+
+#deleteCard .popup__title {
+  flex-shrink: 0;
+  padding-bottom: 38px;
 }
 
 .popup__form {
@@ -119,6 +150,13 @@ transform: translate(-50%, -50%);
   padding: 10px;
   margin-bottom: 40px;
   margin-top: 30px;
+}
+
+#deleteCard .popup__button_save {
+  width: 358px;
+  height: 50px;
+  margin: 0;
+  
 }
 
 .popup__image-title {

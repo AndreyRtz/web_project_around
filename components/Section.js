@@ -10,7 +10,7 @@ export default class Section {
   // - renderer: función que sabe cómo crear/renderizar cada item
   // - containerSelector: selector CSS del contenedor donde se insertarán
   constructor({ item, renderer }, containerSelector) {
-    this._renderedItems = item; // Guarda los datos iniciales
+    this._items = item; // Guarda los datos iniciales
     this._renderer = renderer;  // Guarda la función de renderizado
     this._container = document.querySelector(containerSelector); // Localiza el contenedor en el DOM
   }
@@ -18,7 +18,7 @@ export default class Section {
    // ---------- Renderizado inicial ----------
   // Recorre el array de items iniciales y llama al renderer con cada uno.
   renderer() {
-    this._renderedItems.forEach((item) => {
+    this._items.forEach((item) => {
       this._renderer(item);  // El renderer decidirá cómo construir y añadir el elemento
     });
   }

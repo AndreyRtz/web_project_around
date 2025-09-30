@@ -46,7 +46,7 @@ export default class PopupWithForm extends PopUp {
       // Ejecuta el callback pasando los valores del formulario
       this._handleFormSubmit(this._getInputValues()); //Estoy pasando a handleFormSubmit un objeto que obtengo de getInputValue
       
-      // super.close(); // Cierra el popup después de enviar
+       super.close(); 
     });
   }
 

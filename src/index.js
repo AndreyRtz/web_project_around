@@ -1,12 +1,12 @@
 // Trae clases y utilidades desde otros módulos
-import {api} from "./Api.js"
-import { Card } from "./Card.js";
-import { FormValidator } from "./FormValidator.js";
-import { btnEdit, btnAdd } from "./utils.js";
-import Section from "./Section.js";
-import PopupWithForm from "./PopupWithForm.js";
-import PopupWithImage from "./PopupWithImage.js";
-import UserInfo from "./UserInfo.js";
+import {api} from "../components/Api.js"
+import { Card } from "../components/Card.js";
+import { FormValidator } from "../components/FormValidator.js";
+import { btnEdit, btnAdd } from "../components/utils.js";
+import Section from "../components/Section.js";
+import PopupWithForm from "../components/PopupWithForm.js";
+import PopupWithImage from "../components/PopupWithImage.js";
+import UserInfo from "../components/UserInfo.js";
 import PopupWithConfirmation from "../components/PopupWithConfirmation.js";
 
 
@@ -46,7 +46,7 @@ api
   // Instanciando las clases
   const popupProfile = new PopupWithForm(
     "#editProfile",
-    ".popup__form-add",
+    "#formEdit",
     (data) => {
        popupProfile.setLoadingState(true, "Guardando...");
       api
@@ -156,11 +156,7 @@ function handleDeleteConfirmation(cardId, cardInstance) {
 // ---------- Instancias principales ----------
 
 // Popup para editar perfil (actualiza userProfile)
-const popupProfile = new PopupWithForm(
-  "#editProfile",
-  ".popup__form-add",
-  (data) => {userProfile.setUserInfo(data.name, data.occupation);
-  });
+
 
 // Popup para abrir imágenes grandes
 const popupOpenCard = new PopupWithImage("#openImage");

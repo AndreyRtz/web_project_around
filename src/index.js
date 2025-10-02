@@ -62,12 +62,13 @@ api
     });
     });
 
+    let cardSection = {};
 // API para Tarjetas Iniciales
 api
 .getInitialCards () 
 .then (function (initialCards) {
    // Agregando la seccion
- const cardSection = new Section(
+ cardSection = new Section(
   {
     item: initialCards,
     renderer: (item) => {
@@ -77,7 +78,7 @@ api
   },
   ".card"
 );
-
+cardSection.renderer();
 // Nuevo popup para actualizar el avatar
 const popupEditAvatar = new PopupWithForm(
   "#editAvatar",
@@ -148,18 +149,29 @@ function handleDeleteConfirmation(cardId, cardInstance) {
   popupDeleteCard.open();
 }
 
-
-// Selectores del perfil en el DOM
-// Configuración de perfil
-
-
-// ---------- Instancias principales ----------
-
-// Popup para editar perfil (actualiza userProfile)
-
-
 // Popup para abrir imágenes grandes
 const popupOpenCard = new PopupWithImage("#openImage");
+
+ // Función para crear y devolver un elemento de tarjeta
+function addCard(data) {
+  const cardData = {
+        _id: data._id,
+        name: data.name,
+        link: data.link,
+        isLiked: data.isLiked,
+      };
+  const newCard = new Card(
+     cardData,
+    ".template-card", 
+    (title, link) => {
+          popupOpenCard.open(cardData.name, cardData.link);
+        },
+          handleDeleteConfirmation
+  );
+
+  return newCard.createCard();
+  
+}
 
 // Popup para añadir nuevas tarjetas
 const popupAddCard = new PopupWithForm(
@@ -193,33 +205,6 @@ const popupAddCard = new PopupWithForm(
 // Validador de formularios
 const formValidate = new FormValidator(settings);
 
- // Función para crear y devolver un elemento de tarjeta
-function addCard(data) {
-  const cardData = {
-        _id: data._id,
-        name: data.name,
-        link: data.link,
-        isLiked: data.isLiked,
-      };
-  const newCard = new Card(
-     cardData,
-    ".template-card", 
-    (title, link) => {
-          popupOpenCard.open(cardData.name, cardData.link);
-        },
-          handleDeleteConfirmation
-  );
-
-  return newCard.createCard();
-  
-}
-
-
-  
-// ---------- Secciones ----------
-// Maneja la galería de tarjetas iniciales
-// Agrega la seccion
-
 
 // ---------- Listeners ----------
 // Activa comportamiento interno de los popups
@@ -234,7 +219,7 @@ btnAdd.addEventListener("click", () => popupAddCard.open());
 // ---------- Inicializaciones ----------
 // Inicia la validación y renderiza las tarjetas iniciales
 formValidate.enableValidation();
-cardSection.renderer();
+
 
 });
 
